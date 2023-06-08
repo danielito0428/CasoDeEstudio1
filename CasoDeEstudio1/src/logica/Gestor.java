@@ -21,15 +21,10 @@ public class Gestor {
      */
 
 
-    public boolean insertarLibro(Libro tmpLibro) {
-
-
-
-
+    public String insertarLibro(int id, String titulo,String autor,String cat,String disp, int cant) {
+        Libro tmpLibro = new Libro(id,titulo,autor,cat,disp,cant);
             LibroDAO.insertarLibro(tmpLibro);
-
-
-        return false;
+        return "Se agrego un libro";
     }
 
 

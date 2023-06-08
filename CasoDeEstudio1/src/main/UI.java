@@ -18,6 +18,7 @@ public class UI {
 
             switch (opcion) {
                 case 1:
+                    appGestor.insertarLibro(1,"Harry Potter","J.K Rowling","Fantasia","Disponible",1);
 
                     break;
                 case 2:
