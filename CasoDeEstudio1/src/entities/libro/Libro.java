@@ -1,16 +1,41 @@
 package entities.libro;
 
 public class Libro {
+    private int IdLibro;
     private String titulo;
     private String autor;
     private String categoria;
-    private boolean disp;
+    private String disp;
 
-    public Libro(String titulo, String autor, String categoria){
+    private int cantidad;
+
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
+
+    public String getDisp() {
+        return disp;
+    }
+
+    public int getIdLibro() {
+        return IdLibro;
+    }
+
+    public void setIdLibro(int idLibro) {
+        IdLibro = idLibro;
+    }
+
+    public Libro(int idLibro, String titulo, String autor, String categoria, String disp, int cantidad) {
+        IdLibro = idLibro;
         this.titulo = titulo;
         this.autor = autor;
         this.categoria = categoria;
-        this.disp = true;
+        this.disp = disp;
+        this.cantidad = cantidad;
     }
 
     public String getTitulo() {
@@ -37,11 +62,9 @@ public class Libro {
         this.categoria = categoria;
     }
 
-    public boolean isDisp() {
-        return disp;
-    }
 
-    public void setDisp(boolean disp) {
+
+    public void setDisp(String disp) {
         this.disp = disp;
     }
 
