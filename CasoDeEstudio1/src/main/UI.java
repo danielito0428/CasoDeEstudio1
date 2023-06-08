@@ -1,11 +1,16 @@
 
 package main;
+import logica.Gestor;
+
 import java.util.Scanner;
 
 public class UI {
     private static Scanner scanner;
+    private static Gestor appGestor;
+
     public static void main(String[] args) {
         scanner = new Scanner(System.in);
+        appGestor = new Gestor();
         int opcion;
 
         do {
