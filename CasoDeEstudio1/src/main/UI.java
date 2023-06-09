@@ -1,12 +1,14 @@
 
 package main;
 import entities.persona.Admin;
+import entities.persona.Cliente;
 import logica.Gestor;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class UI {
@@ -15,7 +17,7 @@ public class UI {
     static BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
     static PrintStream out = System.out;
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, SQLException, ClassNotFoundException {
         scanner = new Scanner(System.in);
         int opcion = -1;
         do {
@@ -46,6 +48,7 @@ public class UI {
         print("2. Listar Libros Prestados");
         print("3. Listar Libros Usuario");
         print("4. Listar Libros Disponibles");
+        print("5. Listar Usuarios");
         print("0. Ir al menu principal");
         print("Seleccione una opción: \n");
         print("-------------------");
@@ -75,7 +78,7 @@ public class UI {
         print("-------------------");
     }
 
-    public static void opcionesAdmin() {
+    public static void opcionesAdmin() throws SQLException, ClassNotFoundException {
 
         Admin a = new Admin("D","A","a@email.com","123","123456","28/04/2001","admin1","123",true,"ad1");
 
@@ -99,8 +102,6 @@ public class UI {
                     print("Digite la canitidad de copias del libro: ");
                     int cant = scanner.nextInt();
                      appGestor.insertarLibro1(a.registrarLibro(id,titulo,autor,cat,disp,cant));
-
-
                     break;
                 case 2:
                     print("2");
@@ -110,6 +111,12 @@ public class UI {
                     break;
                 case 4:
                     print("4");
+                    break;
+                case 5:
+                    appGestor.listarUsuarios();
+                      for(Cliente c: appGestor.listarUsuarios()){
+                          print(c.toString());
+                      }
                     break;
                 case 0:
 
@@ -129,7 +136,25 @@ public class UI {
 
             switch (opcion) {
                 case 1:
-                    print("1");
+                    print("Digite su nombre: ");
+                    String nombre = scanner.next();
+                    print("Digite su apellido ");
+                    String apellido = scanner.next();
+                    print("Digite su direccion de correo electronico ");
+                    String direccion = scanner.next();
+                    print("Digite su numero de cedula");
+                    String cedula = scanner.next();
+                    print("Digite su numero de telefono ");
+                    String telefono = scanner.next();
+                    print("Digite su fecha de nacimiento ");
+                    String fNacimiento = scanner.next();
+                    print("Digite su nombre de usuario");
+                    String usuario = scanner.next();
+                    print("Digite su contrasenia ");
+                    String contrasenia = scanner.next();
+                    String estado = "activo";
+                    Cliente c = new Cliente(nombre,apellido,direccion,cedula,telefono,fNacimiento,usuario,contrasenia,estado);
+                    appGestor.insertarCliente(c);
                     break;
                 case 2:
                     print("2");
@@ -150,7 +175,7 @@ public class UI {
         return Integer.parseInt(in.readLine());
     }
 
-    public static void procesarOpcion(int pOpcion) throws IOException {
+    public static void procesarOpcion(int pOpcion) throws IOException, SQLException, ClassNotFoundException {
         switch (pOpcion) {
             case 1:
                 opcionesAdmin();

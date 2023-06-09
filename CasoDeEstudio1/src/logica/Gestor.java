@@ -2,15 +2,25 @@ package logica;
 
 import entities.libro.Libro;
 import entities.libro.LibroDAO;
+import entities.persona.Cliente;
+import entities.persona.ClienteDAO;
+
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+import static entities.persona.ClienteDAO.listarUsuarioTipo;
 
 public class Gestor {
 
 
     private LibroDAO libroDAO;
+    private ClienteDAO clienteDAO;
+    private ClienteDAO c;
 
 
     public Gestor() {
-
+    clienteDAO = new ClienteDAO();
+    c= new ClienteDAO();
      libroDAO = new LibroDAO();
 
     }
@@ -29,6 +39,12 @@ public class Gestor {
     public void insertarLibro1(Libro libro) {
         LibroDAO.insertarLibro(libro);
 
+    }
+    public void insertarCliente(Cliente c){
+        ClienteDAO.insertarCliente(c);
+    }
+    public ArrayList<Cliente> listarUsuarios() throws SQLException, ClassNotFoundException {
+        return new ArrayList<>(ClienteDAO.listarUsuarioTipo());
     }
 
 

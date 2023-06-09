@@ -3,15 +3,18 @@ package entities.persona;
 public class Cliente extends Persona{
     private String usuario;
     private String pswd;
-    private boolean estado;
-    private String idAdmin;
+    private String estado;
 
-    public Cliente(String nombre, String apellido, String direccion, String cedula, String telefono, String fechaNacimiento, String usuario, String pswd, boolean estado, String idAdmin) {
+    public Cliente() {
+        super();
+    }
+
+    public Cliente(String nombre, String apellido, String direccion, String cedula, String telefono, String fechaNacimiento, String usuario, String pswd, String estado) {
         super(nombre, apellido, direccion, cedula, telefono, fechaNacimiento);
         this.usuario = usuario;
         this.pswd = pswd;
         this.estado = estado;
-        this.idAdmin = idAdmin;
+
     }
 
     public String getUsuario() {
@@ -30,24 +33,21 @@ public class Cliente extends Persona{
         this.pswd = pswd;
     }
 
-    public boolean isEstado() {
+    public String getEstado() {
         return estado;
     }
 
-    public void setEstado(boolean estado) {
+    public void setEstado(String estado) {
         this.estado = estado;
     }
 
-    public String getIdAdmin() {
-        return idAdmin;
-    }
-
-    public void setIdAdmin(String idAdmin) {
-        this.idAdmin = idAdmin;
-    }
 
     public Cliente(String nombre, String apellido, String direccion, String cedula, String telefono, String fechaNacimiento) {
         super(nombre, apellido, direccion, cedula, telefono, fechaNacimiento);
+    }
+    public Cliente registrarCLiente(String nombre, String apellido, String direccion, String cedula, String telefono, String fechaNacimiento, String usuario, String pswd, String estado){
+        Cliente tmpCliente = new Cliente( nombre,  apellido,  direccion, cedula, telefono, fechaNacimiento,  usuario,  pswd,  estado);
+        return tmpCliente;
     }
 
     @Override
@@ -55,8 +55,7 @@ public class Cliente extends Persona{
         return "Cliente{" +
                 "usuario='" + usuario + '\'' +
                 ", pswd='" + pswd + '\'' +
-                ", estado=" + estado +
-                ", idAdmin='" + idAdmin + '\'' +
+                ", estado='" + estado + '\'' +
                 '}';
     }
 }

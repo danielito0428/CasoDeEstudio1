@@ -8,6 +8,8 @@ public class Persona {
     private String telefono;
     private String fechaNacimiento;
 
+    public Persona() {
+    }
 
     public Persona(String nombre, String apellido, String direccion, String cedula, String telefono, String fechaNacimiento) {
         this.nombre = nombre;
