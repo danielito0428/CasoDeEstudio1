@@ -39,7 +39,7 @@ public class Configuracion {
     public void leerConfiguracion() {
         Properties properties = new Properties();
         try {
-            FileInputStream fileInputStream = new FileInputStream("C:\\Users\\edgar\\Desktop\\CasoEstudio\\CasoDeEstudio\\CasoDeEstudio1\\CasoDeEstudio1\\src\\entities\\config.properties");
+            FileInputStream fileInputStream = new FileInputStream("C:\\Users\\JIV\\Desktop\\CasoEstudioGrupal\\CasoDeEstudio1\\CasoDeEstudio1\\src\\entities\\config.properties");
             properties.load(fileInputStream);
             this.setClaseJDBC(properties.getProperty("claseJDBC"));
             this.setStringConexion(properties.getProperty("stringConexion"));

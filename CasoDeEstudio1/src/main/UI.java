@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 public class UI {
     private static Scanner scanner;
-    private static Gestor appGestor;
+     private static Gestor appGestor = new Gestor();
     static BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
     static PrintStream out = System.out;
 
@@ -76,6 +76,7 @@ public class UI {
     }
 
     public static void opcionesAdmin() {
+
         Admin a = new Admin("D","A","a@email.com","123","123456","28/04/2001","admin1","123",true,"ad1");
 
         int opcion;
