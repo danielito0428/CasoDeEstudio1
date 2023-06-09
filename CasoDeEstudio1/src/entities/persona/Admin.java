@@ -1,6 +1,10 @@
 package entities.persona;
 
+import entities.libro.Libro;
+import logica.Gestor;
+
 public class Admin extends Persona {
+    private static Gestor appGestor;
     private String usuario;
     private String pswd;
     private boolean estado;
@@ -49,6 +53,15 @@ public class Admin extends Persona {
 
     public void setIdAdmin(String idAdmin) {
         this.idAdmin = idAdmin;
+    }
+
+    public Libro registrarLibro(int idLibro,String titulo,String autor, String cat,String disp, int cant){
+       Libro tmpLibro = new Libro(idLibro,titulo,autor,cat,disp,cant);
+        return tmpLibro;
+
+
+
+
     }
 
     @Override

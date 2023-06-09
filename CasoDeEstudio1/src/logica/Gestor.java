@@ -26,6 +26,10 @@ public class Gestor {
             LibroDAO.insertarLibro(tmpLibro);
         return "Se agrego un libro";
     }
+    public void insertarLibro1(Libro libro) {
+        LibroDAO.insertarLibro(libro);
+
+    }
 
 
 }
