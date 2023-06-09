@@ -50,6 +50,7 @@ public class Cliente extends Persona{
         return tmpCliente;
     }
 
+
     @Override
     public String toString() {
         return "Cliente{" +

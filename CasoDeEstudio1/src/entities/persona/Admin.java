@@ -3,8 +3,10 @@ package entities.persona;
 import entities.libro.Libro;
 import logica.Gestor;
 
+import java.util.ArrayList;
+
 public class Admin extends Persona {
-    private static Gestor appGestor;
+    private static Gestor appGestor = new Gestor();
     private String usuario;
     private String pswd;
     private boolean estado;
@@ -58,9 +60,6 @@ public class Admin extends Persona {
     public Libro registrarLibro(int idLibro,String titulo,String autor, String cat,String disp, int cant){
        Libro tmpLibro = new Libro(idLibro,titulo,autor,cat,disp,cant);
         return tmpLibro;
-
-
-
 
     }
 

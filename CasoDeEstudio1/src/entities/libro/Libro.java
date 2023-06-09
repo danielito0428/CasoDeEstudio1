@@ -3,11 +3,22 @@ package entities.libro;
 public class Libro {
     private int IdLibro;
     private String titulo;
-    private String autor;
     private String categoria;
     private String disp;
-
+    private String autor;
     private int cantidad;
+
+    public Libro() {
+
+    }
+
+    public String getAutor() {
+        return autor;
+    }
+
+    public void setAutor(String autor) {
+        this.autor = autor;
+    }
 
     public int getCantidad() {
         return cantidad;
@@ -32,7 +43,7 @@ public class Libro {
     public Libro(int idLibro, String titulo, String autor, String categoria, String disp, int cantidad) {
         IdLibro = idLibro;
         this.titulo = titulo;
-        this.autor = autor;
+        this.autor=autor;
         this.categoria = categoria;
         this.disp = disp;
         this.cantidad = cantidad;
@@ -46,13 +57,6 @@ public class Libro {
         this.titulo = titulo;
     }
 
-    public String getAutor() {
-        return autor;
-    }
-
-    public void setAutor(String autor) {
-        this.autor = autor;
-    }
 
     public String getCategoria() {
         return categoria;

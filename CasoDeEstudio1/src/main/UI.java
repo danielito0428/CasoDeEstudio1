@@ -1,9 +1,10 @@
 
 package main;
+import entities.libro.Libro;
 import entities.persona.Admin;
 import entities.persona.Cliente;
+import entities.prestamo.Prestamo;
 import logica.Gestor;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -104,13 +105,22 @@ public class UI {
                      appGestor.insertarLibro1(a.registrarLibro(id,titulo,autor,cat,disp,cant));
                     break;
                 case 2:
-                    print("2");
+                    for(String libros: appGestor.listarLibrosPrestados())
+                        print(libros);
                     break;
                 case 3:
-                    print("3");
+                    for (String l: appGestor.listarTitulos())
+
+                        print(l);
+
                     break;
                 case 4:
                     print("4");
+                    appGestor.mostrarLibrosDisp();
+                    for (Libro b: appGestor.mostrarLibrosDisp()){
+                        print(b.toString());
+                    }
+
                     break;
                 case 5:
                     appGestor.listarUsuarios();
@@ -124,16 +134,13 @@ public class UI {
 
             }
             System.out.println();
-        } while (opcion != 4);
+        } while (opcion != 0);
     }
 
     public static void opcionesCliente() {
-
         int opcion;
-
         do {
             opcion = obtenerOpcionMenuCliente();
-
             switch (opcion) {
                 case 1:
                     print("Digite su nombre: ");
@@ -157,10 +164,24 @@ public class UI {
                     appGestor.insertarCliente(c);
                     break;
                 case 2:
-                    print("2");
+                    print("Digite el id de prestamo ");
+                    int idPrestamo = scanner.nextInt();
+                    print("Digite su usuario ");
+                    String tag = scanner.next();
+                    print("Digite el id del libro ");
+                    int idLibro = scanner.nextInt();
+                    print("Digite de inicio del prestamo ");
+                    String fechaInicio = scanner.next();
+                    appGestor.prestarLibro(idPrestamo,tag,idLibro,fechaInicio);
                     break;
                 case 3:
-                    print("3");
+                    print("Digite el id de prestamo ");
+                    int idPrest = scanner.nextInt();
+                    print("Ingrese la fecha ");
+                    String fechaf = scanner.next();
+                    print("Digite el id del libro ");
+                    int idLibr = scanner.nextInt();
+                    appGestor.regresarLibro(idPrest,fechaf,idLibr);
                     break;
                 case 0:
                     break;
