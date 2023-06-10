@@ -1,6 +1,8 @@
 package entities.persona;
 
+//La clase Persona hereda sus atributos a las clases Cliente y Admin, por esto mismo es considerada la clase padre de estas dos
 public class Persona {
+    //Se declaran las variables de la clase Persona
     private String nombre;
     private String apellido;
     private String direccion;
@@ -8,9 +10,11 @@ public class Persona {
     private String telefono;
     private String fechaNacimiento;
 
+    //Constructor por defecto de la clase Persona
     public Persona() {
     }
 
+    //Constructor pasando por parametros todos los atributos de la clase Persona
     public Persona(String nombre, String apellido, String direccion, String cedula, String telefono, String fechaNacimiento) {
         this.nombre = nombre;
         this.apellido = apellido;
@@ -20,6 +24,7 @@ public class Persona {
         this.fechaNacimiento = fechaNacimiento;
     }
 
+    //Getters y setters de la clase Persona
     public String getNombre() {
         return nombre;
     }
@@ -68,6 +73,7 @@ public class Persona {
         this.fechaNacimiento = fechaNacimiento;
     }
 
+    //Metodo "toString()" de la clase Persona
     @Override
     public String toString() {
         return "Persona{" +

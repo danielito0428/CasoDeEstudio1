@@ -5,14 +5,16 @@ import logica.Gestor;
 
 import java.util.ArrayList;
 
+//La clase Admin es hija de la clase Persona
 public class Admin extends Persona {
+    //Declaracion de los atributos de la clase
     private static Gestor appGestor = new Gestor();
     private String usuario;
     private String pswd;
     private boolean estado;
     private String idAdmin;
 
-
+    //Super constructor con los atributos de la clase Persona y la clase Admin
     public Admin(String nombre, String apellido, String direccion, String cedula, String telefono, String fechaNacimiento) {
         super(nombre, apellido, direccion, cedula, telefono, fechaNacimiento);
     }
@@ -25,6 +27,7 @@ public class Admin extends Persona {
         this.idAdmin = idAdmin;
     }
 
+    //Getters y setters de los atributos de la clase Admin
     public String getUsuario() {
         return usuario;
     }
@@ -63,6 +66,7 @@ public class Admin extends Persona {
 
     }
 
+    //Metodo "toString()" de la clase Admin
     @Override
     public String toString() {
         return "Admin{" +

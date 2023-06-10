@@ -7,19 +7,19 @@ import java.util.Properties;
 
 public class Configuracion {
 
-
+    //Declaracion de los atrbutos de la clase Configuracion
     private String claseJDBC;
     private String stringConexion;
-
+    //Constructor de la clase que ejecuta el metodo leerConfiguracion()
     public Configuracion() {
         leerConfiguracion();
     }
-
+    //Constructor con todos los atributos de la clase
     public Configuracion(String claseJDBC, String stringConexion) {
         this.claseJDBC = claseJDBC;
         this.stringConexion = stringConexion;
     }
-
+    //Getters y setters de los atributos de la clase Configuracion
     public String getClaseJDBC() {
         return claseJDBC;
     }
@@ -35,7 +35,8 @@ public class Configuracion {
     public void setStringConexion(String stringConexion) {
         this.stringConexion = stringConexion;
     }
-
+    /*En el metodo leerConfiguracion() se ubica el proyecto en el directorio de documnetos como primer paso
+    * Posteriormente se hace un llamado a los drivers del JDBC y tambien se llama al String de conexion de la base de datos*/
     public void leerConfiguracion() {
         Properties properties = new Properties();
         try {

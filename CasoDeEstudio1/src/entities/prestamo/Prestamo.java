@@ -5,6 +5,7 @@ import entities.persona.Cliente;
 
 public class Prestamo {
 
+    //Declaracion de los atributos de la clase Prestamo
     private String fechaInicio;
 
     private String fechaFin;
@@ -14,10 +15,11 @@ public class Prestamo {
     private int IDlibro;
     private String Usercliente;
 
+    //Constructor ultilizado para buscar el prestamo segun su idPrestamo y asginarle la fechaFin
     public Prestamo(int idPrestamo, String fechaFin) {
     }
 
-
+    //Getters y setters de los atributos de la clase Prestamo
     public String getFechaInicio() {
         return fechaInicio;
     }
@@ -58,6 +60,7 @@ public class Prestamo {
         Usercliente = usercliente;
     }
 
+    //Se omite la fecha fin, ya que este constructor se utiliza al registrar un Prestamo
     public Prestamo(String fechaInicio, int idPrestamo, int IDlibro, String usercliente) {
         this.fechaInicio = fechaInicio;
         this.idPrestamo = idPrestamo;
@@ -65,6 +68,7 @@ public class Prestamo {
         Usercliente = usercliente;
     }
 
+    //Constructor con todos atributos de la clase
     public Prestamo(String fechaInicio, String fechaFin, int idPrestamo, int IDlibro, String usercliente) {
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
@@ -73,6 +77,7 @@ public class Prestamo {
         Usercliente = usercliente;
     }
 
+    //Metodo "toString()" de la clase Prestamo
     @Override
     public String toString() {
         return "Prestamo{" +
