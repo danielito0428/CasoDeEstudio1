@@ -149,10 +149,14 @@ public class UI {
      * La opcion 2 permite a un cliente ya registrado poder pedir prestamos ingresando la informacion necesaria
      * La opcion 3 permite devolver un libro ya prestado anteriormente ingresando los datos del prestamo previamente hecho
      * Si se ingresa el 0 como una opcion se volvera al menu de tipo de usuario*/
+
     public static void opcionesCliente() {
         int opcion;
+        boolean opcion1Seleccionada = false;
+
         do {
             opcion = obtenerOpcionMenuCliente();
+
             switch (opcion) {
                 case 1:
                     print("Digite su nombre: ");
@@ -174,8 +178,13 @@ public class UI {
                     String estado = "activo";
                     Cliente c = new Cliente(nombre,apellido,direccion,cedula,telefono,fNacimiento,usuario,contrasenia,estado);
                     appGestor.insertarCliente(c);
+                    opcion1Seleccionada = true;
                     break;
                 case 2:
+                    if (!opcion1Seleccionada) {
+                        print("Debe seleccionar la opción 1 primero.");
+                        break;
+                    }
                     print("Digite el id de prestamo ");
                     int idPrestamo = scanner.nextInt();
                     print("Digite su usuario ");
@@ -187,6 +196,10 @@ public class UI {
                     appGestor.prestarLibro(idPrestamo,tag,idLibro,fechaInicio);
                     break;
                 case 3:
+                    if (!opcion1Seleccionada) {
+                        print("Debe seleccionar la opción 1 primero.");
+                        break;
+                    }
                     print("Digite el id de prestamo ");
                     int idPrest = scanner.nextInt();
                     print("Ingrese la fecha ");
@@ -197,8 +210,8 @@ public class UI {
                     break;
                 case 0:
                     break;
-
             }
+
             System.out.println();
         } while (opcion != 0);
     }
